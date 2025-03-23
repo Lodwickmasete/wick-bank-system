@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Banking System</h1>
+    <p class="lead">A secure and easy way to manage your finances online.</p>
+    <hr class="my-4">
+    <p>Get started by creating an account or logging in if you already have one.</p>
+    <div class="d-flex gap-2">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('create_account') }}" role="button">Create Account</a>
+        <a class="btn btn-secondary btn-lg" href="{{ url_for('login') }}" role="button">Login</a>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <h2>Easy Transfers</h2>
+        <p>Transfer money to other accounts with just a few clicks.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Track Transactions</h2>
+        <p>View your transaction history and keep track of your spending.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Secure Banking</h2>
+        <p>Your financial data is protected with the highest security standards.</p>
+    </div>
+</div>
+{% endblock %}

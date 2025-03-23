@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Statement{% endblock %}
+
+{% block content %}
+<h2>Account Statement</h2>
+
+<a href="{{ url_for('dashboard') }}" class="btn btn-secondary mb-3">Back to Dashboard</a>
+
+<table class="table table-striped transaction-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions|reverse %}
+        <tr>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.type }}</td>
+            <td>${{ "%.2f"|format(transaction.amount) }}</td>
+            <td>${{ "%.2f"|format(transaction.balance) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

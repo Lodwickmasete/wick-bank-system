@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Withdraw{% endblock %}
+
+{% block content %}
+<h2>Make a Withdrawal</h2>
+<form method="post">
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount ($)</label>
+        <input type="number" step="0.01" min="0.01" class="form-control" id="amount" name="amount" required>
+    </div>
+    <div class="mb-3">
+        <label for="pin" class="form-label">Confirm PIN</label>
+        <input type="password" class="form-control" id="pin" name="pin" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Withdraw</button>
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

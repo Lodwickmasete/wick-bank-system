@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ account.name }}</h2>
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Account Information</h5>
+        <p><strong>Account Number:</strong> {{ account.account_number }}</p>
+        <p><strong>Current Balance:</strong> ${{ "%.2f"|format(account.balance) }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Deposit</h5>
+                <p class="card-text">Add funds to your account.</p>
+                <a href="{{ url_for('deposit') }}" class="btn btn-primary">Make a Deposit</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Withdraw</h5>
+                <p class="card-text">Withdraw money from your account.</p>
+                <a href="{{ url_for('withdraw') }}" class="btn btn-primary">Make a Withdrawal</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Transfer</h5>
+                <p class="card-text">Transfer money to another account.</p>
+                <a href="{{ url_for('transfer') }}" class="btn btn-primary">Make a Transfer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <h3>Recent Transactions</h3>
+    <a href="{{ url_for('statement') }}" class="btn btn-outline-primary mb-3">View Full Statement</a>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in account.transactions[-5:]|reverse %}
+            <tr>
+                <td>{{ transaction.date }}</td>
+                <td>{{ transaction.type }}</td>
+                <td>${{ "%.2f"|format(transaction.amount) }}</td>
+                <td>${{ "%.2f"|format(transaction.balance) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
