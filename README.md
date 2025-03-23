@@ -2,9 +2,9 @@
 
 A simple yet functional web-based banking application built with Flask that simulates core banking operations including account creation, money transfers, deposits, and withdrawals.
 
-![Banking System Demo](https://github.com/lodwickmasete/wick-banking-system/raw/main/screenshots/Screenshot_20250323_221526_Chrome.jpg)
+![Banking System Demo](./screenshots/Screenshot_20250323_221526_Chrome.jpg)
 
-![Banking System Demo](https://github.com/lodwickmasete/wick-banking-system/raw/main/screenshots/Screenshot_20250323_221602_Chrome.jpg)
+![Banking System Demo](./screenshots/Screenshot_20250323_221602_Chrome.jpg)
 ## Features
 
 - **Account Management**
